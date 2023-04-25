@@ -1,7 +1,12 @@
+body {
+  min-width: 300px;
+}
+
 header {
   display: flex;
   justify-content: center;
   background-color: rgba(231, 113, 125, 1);
+  height: 50px;
 }
 
 main {
@@ -11,4 +16,5 @@ main {
 
 .row {
   display: flex;
+  justify-content: center;
 }
