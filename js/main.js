@@ -1,4 +1,5 @@
 const $form = document.querySelector('form');
+const $results = document.querySelector('.results');
 const $input = document.querySelector('#search');
 const $tbody = document.querySelector('tbody');
 
@@ -19,6 +20,7 @@ $form.addEventListener('submit', function (event) {
   });
   xhr.send();
 
+  $results.style.display = 'block';
 });
 
 function renderRow(holiday) {

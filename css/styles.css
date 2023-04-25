@@ -10,7 +10,7 @@ h1 {
 }
 
 .results {
-  display: block;
+  display: none;
 }
 
 .column-full {
