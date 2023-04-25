@@ -1,16 +1,9 @@
-header {
-  display: flex;
-  justify-content: center;
-  background-color: rgba(231, 113, 125, 1);
-}
-
 h1 {
   color: white;
   font-weight: lighter;
   font-style: italic;
 }
 
-main {
-  display: flex;
-  justify-content: center;
+#search {
+  margin: 16px 5px;
 }
