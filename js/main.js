@@ -5,6 +5,7 @@ const $tbody = document.querySelector('tbody');
 
 $form.addEventListener('submit', function (event) {
   event.preventDefault();
+  $tbody.innerHTML = '';
   const countryCode = $input.value;
 
   var xhr = new XMLHttpRequest();
