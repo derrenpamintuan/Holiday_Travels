@@ -24,10 +24,16 @@ h1 {
 
 table {
   text-align: center;
+  margin: 0 20px 30px;
 }
 
 table,
 th,
 td {
   border: 1px solid black;
+}
+
+.fa-heart {
+  margin-top: 5px;
+  cursor: pointer;
 }

@@ -3,6 +3,7 @@ const $noResults = document.querySelector('.not-found');
 const $results = document.querySelector('.results');
 const $input = document.querySelector('#search');
 const $tbody = document.querySelector('tbody');
+const $table = document.querySelector('table');
 
 $form.addEventListener('submit', function (event) {
   event.preventDefault();
@@ -50,8 +51,19 @@ function renderRow(holiday) {
   const $nameText = document.createTextNode(holiday.name);
   $name.appendChild($nameText);
 
+  const $iconElement = document.createElement('i');
+  $iconElement.setAttribute('class', 'fa-regular fa-heart');
+
   const $tr = document.createElement('tr');
-  $tr.append($date, $localName, $name);
+  $tr.append($date, $localName, $name, $iconElement);
 
   return $tr;
 }
+
+$table.addEventListener('click', function (event) {
+  if (event.target.className === 'fa-regular fa-heart') {
+    event.target.setAttribute('class', 'fa-solid fa-heart');
+  } else if (event.target.className === 'fa-solid fa-heart') {
+    event.target.setAttribute('class', 'fa-regular fa-heart');
+  }
+});
