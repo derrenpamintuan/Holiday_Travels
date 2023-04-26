@@ -9,6 +9,10 @@ h1 {
   margin: 16px 5px;
 }
 
+.not-found {
+  display: none;
+}
+
 .results {
   display: none;
 }

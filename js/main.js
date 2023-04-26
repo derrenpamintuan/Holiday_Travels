@@ -1,4 +1,5 @@
 const $form = document.querySelector('form');
+const $noResults = document.querySelector('.not-found');
 const $results = document.querySelector('.results');
 const $input = document.querySelector('#search');
 const $tbody = document.querySelector('tbody');
@@ -14,14 +15,20 @@ $form.addEventListener('submit', function (event) {
   xhr.addEventListener('load', function () {
     const data = xhr.response;
 
+    if (data === null || data.status === 404) {
+      $results.style.display = 'none';
+      $noResults.style.display = 'block';
+    } else {
+      $noResults.style.display = 'none';
+    }
+
     for (let i = 0; i < data.length; i++) {
       const holiday = renderRow(data[i]);
       $tbody.appendChild(holiday);
+      $results.style.display = 'block';
     }
   });
   xhr.send();
-
-  $results.style.display = 'block';
 });
 
 function renderRow(holiday) {
