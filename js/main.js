@@ -30,6 +30,7 @@ $form.addEventListener('submit', function (event) {
     }
   });
   xhr.send();
+
 });
 
 function renderRow(holiday) {
@@ -60,6 +61,12 @@ function renderRow(holiday) {
   const $iconElement = document.createElement('i');
   $iconElement.setAttribute('class', 'fa-regular fa-heart');
 
+  for (let i = 0; i < data.holidays.length; i++) {
+    if (holiday.localName === data.holidays[i].localName && holiday.countryCode === data.holidays[i].countryCode) {
+      $iconElement.setAttribute('class', 'fa-solid fa-heart');
+    }
+  }
+
   const $tr = document.createElement('tr');
   $tr.append($code, $date, $localName, $name, $iconElement);
 
@@ -74,7 +81,7 @@ $table.addEventListener('click', function (event) {
     const $nameValue = event.target.closest('tr').childNodes[3].textContent;
 
     const holiday = {};
-    holiday.contryCode = $codeValue;
+    holiday.countryCode = $codeValue;
     holiday.date = $dateValue;
     holiday.localName = $localNameValue;
     holiday.name = $nameValue;
