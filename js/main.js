@@ -3,6 +3,7 @@ const $noResults = document.querySelector('.not-found');
 const $results = document.querySelector('.results');
 const $input = document.querySelector('#search');
 const $tbody = document.querySelector('tbody');
+const $table = document.querySelector('table');
 
 $form.addEventListener('submit', function (event) {
   event.preventDefault();
@@ -13,22 +14,23 @@ $form.addEventListener('submit', function (event) {
   xhr.open('GET', 'https://date.nager.at/api/v3/publicholidays/2023/' + countryCode);
   xhr.responseType = 'json';
   xhr.addEventListener('load', function () {
-    const data = xhr.response;
+    const apiData = xhr.response;
 
-    if (data === null || data.status === 404) {
+    if (apiData === null || apiData.status === 404) {
       $results.style.display = 'none';
       $noResults.style.display = 'block';
     } else {
       $noResults.style.display = 'none';
     }
 
-    for (let i = 0; i < data.length; i++) {
-      const holiday = renderRow(data[i]);
+    for (let i = 0; i < apiData.length; i++) {
+      const holiday = renderRow(apiData[i]);
       $tbody.appendChild(holiday);
       $results.style.display = 'block';
     }
   });
   xhr.send();
+
 });
 
 function renderRow(holiday) {
@@ -50,8 +52,43 @@ function renderRow(holiday) {
   const $nameText = document.createTextNode(holiday.name);
   $name.appendChild($nameText);
 
+  const $code = document.createElement('td');
+  $code.setAttribute('class', 'code');
+
+  const $codeText = document.createTextNode(holiday.countryCode);
+  $code.appendChild($codeText);
+
+  const $iconElement = document.createElement('i');
+  $iconElement.setAttribute('class', 'fa-regular fa-heart');
+
+  for (let i = 0; i < data.holidays.length; i++) {
+    if (holiday.localName === data.holidays[i].localName && holiday.countryCode === data.holidays[i].countryCode) {
+      $iconElement.setAttribute('class', 'fa-solid fa-heart');
+    }
+  }
+
   const $tr = document.createElement('tr');
-  $tr.append($date, $localName, $name);
+  $tr.append($code, $date, $localName, $name, $iconElement);
 
   return $tr;
 }
+
+$table.addEventListener('click', function (event) {
+  if (event.target.className === 'fa-regular fa-heart') {
+    const $codeValue = event.target.closest('tr').childNodes[0].textContent;
+    const $dateValue = event.target.closest('tr').childNodes[1].textContent;
+    const $localNameValue = event.target.closest('tr').childNodes[2].textContent;
+    const $nameValue = event.target.closest('tr').childNodes[3].textContent;
+
+    const holiday = {};
+    holiday.countryCode = $codeValue;
+    holiday.date = $dateValue;
+    holiday.localName = $localNameValue;
+    holiday.name = $nameValue;
+    holiday.id = data.holidayId;
+    data.holidays.push(holiday);
+    data.holidayId++;
+
+    event.target.setAttribute('class', 'fa-solid fa-heart');
+  }
+});
