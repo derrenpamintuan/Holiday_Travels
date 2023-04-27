@@ -51,22 +51,30 @@ function renderRow(holiday) {
   const $nameText = document.createTextNode(holiday.name);
   $name.appendChild($nameText);
 
+  const $code = document.createElement('td');
+  $code.setAttribute('class', 'code');
+
+  const $codeText = document.createTextNode(holiday.countryCode);
+  $code.appendChild($codeText);
+
   const $iconElement = document.createElement('i');
   $iconElement.setAttribute('class', 'fa-regular fa-heart');
 
   const $tr = document.createElement('tr');
-  $tr.append($date, $localName, $name, $iconElement);
+  $tr.append($code, $date, $localName, $name, $iconElement);
 
   return $tr;
 }
 
 $table.addEventListener('click', function (event) {
   if (event.target.className === 'fa-regular fa-heart') {
-    const $dateValue = event.target.closest('tr').childNodes[0].textContent;
-    const $localNameValue = event.target.closest('tr').childNodes[1].textContent;
-    const $nameValue = event.target.closest('tr').childNodes[2].textContent;
+    const $codeValue = event.target.closest('tr').childNodes[0].textContent;
+    const $dateValue = event.target.closest('tr').childNodes[1].textContent;
+    const $localNameValue = event.target.closest('tr').childNodes[2].textContent;
+    const $nameValue = event.target.closest('tr').childNodes[3].textContent;
 
     const holiday = {};
+    holiday.contryCode = $codeValue;
     holiday.date = $dateValue;
     holiday.localName = $localNameValue;
     holiday.name = $nameValue;
