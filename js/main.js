@@ -14,17 +14,17 @@ $form.addEventListener('submit', function (event) {
   xhr.open('GET', 'https://date.nager.at/api/v3/publicholidays/2023/' + countryCode);
   xhr.responseType = 'json';
   xhr.addEventListener('load', function () {
-    const data = xhr.response;
+    const apiData = xhr.response;
 
-    if (data === null || data.status === 404) {
+    if (apiData === null || apiData.status === 404) {
       $results.style.display = 'none';
       $noResults.style.display = 'block';
     } else {
       $noResults.style.display = 'none';
     }
 
-    for (let i = 0; i < data.length; i++) {
-      const holiday = renderRow(data[i]);
+    for (let i = 0; i < apiData.length; i++) {
+      const holiday = renderRow(apiData[i]);
       $tbody.appendChild(holiday);
       $results.style.display = 'block';
     }
@@ -62,8 +62,18 @@ function renderRow(holiday) {
 
 $table.addEventListener('click', function (event) {
   if (event.target.className === 'fa-regular fa-heart') {
+    const $dateValue = event.target.closest('tr').childNodes[0].textContent;
+    const $localNameValue = event.target.closest('tr').childNodes[1].textContent;
+    const $nameValue = event.target.closest('tr').childNodes[2].textContent;
+
+    const holiday = {};
+    holiday.date = $dateValue;
+    holiday.localName = $localNameValue;
+    holiday.name = $nameValue;
+    holiday.id = data.holidayId;
+    data.holidays.push(holiday);
+    data.holidayId++;
+
     event.target.setAttribute('class', 'fa-solid fa-heart');
-  } else if (event.target.className === 'fa-solid fa-heart') {
-    event.target.setAttribute('class', 'fa-regular fa-heart');
   }
 });
