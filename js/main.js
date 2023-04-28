@@ -92,3 +92,65 @@ $table.addEventListener('click', function (event) {
     event.target.setAttribute('class', 'fa-solid fa-heart');
   }
 });
+
+// eslint-disable-next-line no-unused-vars
+function renderSaved(saved) {
+
+  const $saveContainer = document.createElement('div');
+  $saveContainer.setAttribute('class', 'save-container');
+
+  const $savedHeader = document.createElement('div');
+  $savedHeader.setAttribute('class', 'row saved-header');
+
+  const $savedCode = document.createElement('h3');
+  $savedCode.textContent = saved.countryCode;
+
+  const $delete = document.createElement('i');
+  $delete.setAttribute('class', 'fa-solid fa-square-xmark');
+
+  const $savedNameRow = document.createElement('div');
+  $savedNameRow.setAttribute('class', 'row');
+
+  const $savedName = document.createElement('h4');
+  $savedName.textContent = saved.name;
+
+  const $savedDateRow = document.createElement('div');
+  $savedDateRow.setAttribute('class', 'row');
+
+  const $savedDate = document.createElement('h4');
+  $savedDate.textContent = saved.date;
+
+  const $ratingsRow = document.createElement('div');
+  $ratingsRow.setAttribute('class', 'row ratings');
+
+  const $rating1 = document.createElement('i');
+  $rating1.setAttribute('class', 'fa-regular fa-star');
+
+  const $rating2 = document.createElement('i');
+  $rating2.setAttribute('class', 'fa-regular fa-star');
+
+  const $rating3 = document.createElement('i');
+  $rating3.setAttribute('class', 'fa-regular fa-star');
+
+  const $rating4 = document.createElement('i');
+  $rating4.setAttribute('class', 'fa-regular fa-star');
+
+  const $rating5 = document.createElement('i');
+  $rating5.setAttribute('class', 'fa-regular fa-star');
+
+  const $li = document.createElement('li');
+
+  $ratingsRow.append($rating1, $rating2, $rating3, $rating4, $rating5);
+
+  $savedDateRow.append($savedDate);
+
+  $savedNameRow.append($savedName);
+
+  $savedHeader.append($savedCode, $delete);
+
+  $saveContainer.append($savedHeader, $savedNameRow, $savedDateRow, $ratingsRow);
+
+  $li.append($saveContainer);
+
+  return $li;
+}
