@@ -1,4 +1,5 @@
 const $form = document.querySelector('form');
+const $header = document.querySelector('header');
 const $noResults = document.querySelector('.not-found');
 const $results = document.querySelector('.results');
 const $input = document.querySelector('#search');
@@ -169,3 +170,11 @@ function viewSwap(view) {
     $savedView.className = 'view';
   }
 }
+
+$header.addEventListener('click', function (event) {
+  if (event.target.className === 'fa-solid fa-bookmark') {
+    viewSwap('saved-view');
+  } else if (event.target.className === 'fa-solid fa-house') {
+    viewSwap('search-view');
+  }
+});

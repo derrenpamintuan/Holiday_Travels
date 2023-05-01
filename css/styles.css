@@ -128,3 +128,19 @@ h4 {
   cursor: pointer;
   color: gold;
 }
+
+.fa-solid.fa-bookmark {
+  color: white;
+  font-size: 20px;
+  height: 16px;
+  margin: 15px 15px 0 0;
+  cursor: pointer;
+}
+
+.fa-solid.fa-house {
+  color: white;
+  font-size: 20px;
+  height: 16px;
+  margin: 15px 0 0 15px;
+  cursor: pointer;
+}
