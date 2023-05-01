@@ -132,7 +132,7 @@ h4 {
 .fa-solid.fa-bookmark {
   color: white;
   font-size: 20px;
-  height: 16px;
+  height: 21px;
   margin: 15px 15px 0 0;
   cursor: pointer;
 }
@@ -140,7 +140,23 @@ h4 {
 .fa-solid.fa-house {
   color: white;
   font-size: 20px;
-  height: 16px;
+  height: 21px;
   margin: 15px 0 0 15px;
   cursor: pointer;
+}
+
+.fa-solid.fa-bookmark:active,
+.fa-solid.fa-house:active {
+  color: black;
+}
+
+@media screen and (min-width: 450px) {
+  .fa-solid.fa-bookmark:hover,
+  .fa-solid.fa-house:hover {
+    color: black;
+  }
+}
+
+.no-saved-holidays {
+  margin-top: 30px;
 }

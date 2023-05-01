@@ -5,6 +5,7 @@ const $results = document.querySelector('.results');
 const $input = document.querySelector('#search');
 const $tbody = document.querySelector('tbody');
 const $table = document.querySelector('table');
+const $ul = document.querySelector('ul');
 
 $form.addEventListener('submit', function (event) {
   event.preventDefault();
@@ -90,11 +91,15 @@ $table.addEventListener('click', function (event) {
     data.holidays.push(holiday);
     data.holidayId++;
 
+    $ul.append(renderSaved(holiday));
+
+    $savedHolidays.setAttribute('class', 'row saved-holidays');
+    $noSavedHolidays.setAttribute('class', 'row hidden');
+
     event.target.setAttribute('class', 'fa-solid fa-heart');
   }
 });
 
-// eslint-disable-next-line no-unused-vars
 function renderSaved(saved) {
 
   const $saveContainer = document.createElement('div');
@@ -159,7 +164,6 @@ function renderSaved(saved) {
 const $searchView = document.getElementById('search-view');
 const $savedView = document.getElementById('saved-view');
 
-// eslint-disable-next-line no-unused-vars
 function viewSwap(view) {
   data.view = view;
   if (view === 'search-view') {
@@ -171,6 +175,8 @@ function viewSwap(view) {
   }
 }
 
+viewSwap(data.view);
+
 $header.addEventListener('click', function (event) {
   if (event.target.className === 'fa-solid fa-bookmark') {
     viewSwap('saved-view');
@@ -178,3 +184,18 @@ $header.addEventListener('click', function (event) {
     viewSwap('search-view');
   }
 });
+
+const $savedHolidays = document.querySelector('.saved-holidays');
+const $noSavedHolidays = document.querySelector('.no-saved-holidays');
+
+if (data.holidays.length === 0) {
+  $noSavedHolidays.setAttribute('class', 'row no-saved-holidays');
+  $savedHolidays.setAttribute('class', 'row hidden');
+} else {
+  $savedHolidays.setAttribute('class', 'row saved-holidays');
+  $noSavedHolidays.setAttribute('class', 'row hidden');
+}
+
+for (let i = 0; i < data.holidays.length; i++) {
+  $ul.append(renderSaved(data.holidays[i]));
+}
