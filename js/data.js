@@ -1,5 +1,6 @@
 /* exported data */
 let data = {
+  view: 'search-view',
   holidayId: 1,
   holidays: []
 };

@@ -1,3 +1,7 @@
+html {
+  /* background-color: antiquewhite; */
+}
+
 body {
   min-width: 280px;
 }
@@ -12,6 +16,9 @@ header {
 main {
   display: flex;
   justify-content: center;
+  height: 95vh;
+
+  /* background-color: aqua; */
 }
 
 .row {

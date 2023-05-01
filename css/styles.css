@@ -98,6 +98,8 @@ li {
 .fa-solid.fa-square-xmark {
   cursor: pointer;
   height: 16px;
+  position: relative;
+  right: 1px;
 }
 
 .saved-header {

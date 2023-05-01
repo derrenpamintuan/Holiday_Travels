@@ -154,3 +154,18 @@ function renderSaved(saved) {
 
   return $li;
 }
+
+const $searchView = document.getElementById('search-view');
+const $savedView = document.getElementById('saved-view');
+
+// eslint-disable-next-line no-unused-vars
+function viewSwap(view) {
+  data.view = view;
+  if (view === 'search-view') {
+    $searchView.className = 'view';
+    $savedView.className = 'view hidden';
+  } else {
+    $searchView.className = 'view hidden';
+    $savedView.className = 'view';
+  }
+}
