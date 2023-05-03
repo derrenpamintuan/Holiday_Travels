@@ -5,6 +5,10 @@ h1 {
   margin: auto;
 }
 
+.hidden {
+  display: none;
+}
+
 #search {
   margin: 16px 5px;
 }
@@ -43,7 +47,7 @@ td {
   }
 }
 
-.fa-regular {
+.fa-regular.fa-heart {
   color: rgb(186, 186, 186);
   cursor: pointer;
 }
@@ -52,6 +56,107 @@ td {
   color: black;
 }
 
-.fa-solid {
+.fa-solid.fa-heart {
   color: red;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+@media screen and (min-width: 600px) {
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 600px;
+  }
+
+  li {
+    margin: 0 10px 20px;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  ul {
+    max-width: 1000px;
+  }
+}
+
+.save-container {
+  border: 1px solid black;
+  width: 280px;
+  min-height: 125px;
+}
+
+.fa-solid.fa-square-xmark {
+  cursor: pointer;
+  height: 16px;
+  position: relative;
+  right: 1px;
+}
+
+.saved-header {
+  justify-content: end;
+  background-color: blanchedalmond;
+  color: black;
+}
+
+.saved-header > h3 {
+  margin: 5px 110px 5px 0;
+}
+
+h4 {
+  margin: 10px 0 0;
+}
+
+.ratings {
+  margin-top: 15px;
+}
+
+.fa-regular.fa-star {
+  cursor: pointer;
+}
+
+.fa-solid.fa-star {
+  cursor: pointer;
+  color: gold;
+}
+
+.fa-solid.fa-bookmark {
+  color: white;
+  font-size: 20px;
+  height: 21px;
+  margin: 15px 15px 0 0;
+  cursor: pointer;
+}
+
+.fa-solid.fa-house {
+  color: white;
+  font-size: 20px;
+  height: 21px;
+  margin: 15px 0 0 15px;
+  cursor: pointer;
+}
+
+.fa-solid.fa-bookmark:active,
+.fa-solid.fa-house:active {
+  color: black;
+}
+
+@media screen and (min-width: 450px) {
+  .fa-solid.fa-bookmark:hover,
+  .fa-solid.fa-house:hover {
+    color: black;
+  }
+}
+
+.no-saved-holidays {
+  margin-top: 30px;
 }

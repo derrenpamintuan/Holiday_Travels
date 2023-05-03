@@ -1,9 +1,11 @@
 const $form = document.querySelector('form');
+const $header = document.querySelector('header');
 const $noResults = document.querySelector('.not-found');
 const $results = document.querySelector('.results');
 const $input = document.querySelector('#search');
 const $tbody = document.querySelector('tbody');
 const $table = document.querySelector('table');
+const $ul = document.querySelector('ul');
 
 $form.addEventListener('submit', function (event) {
   event.preventDefault();
@@ -89,6 +91,111 @@ $table.addEventListener('click', function (event) {
     data.holidays.push(holiday);
     data.holidayId++;
 
+    $ul.append(renderSaved(holiday));
+
+    $savedHolidays.setAttribute('class', 'row saved-holidays');
+    $noSavedHolidays.setAttribute('class', 'row hidden');
+
     event.target.setAttribute('class', 'fa-solid fa-heart');
   }
 });
+
+function renderSaved(saved) {
+
+  const $saveContainer = document.createElement('div');
+  $saveContainer.setAttribute('class', 'save-container');
+
+  const $savedHeader = document.createElement('div');
+  $savedHeader.setAttribute('class', 'row saved-header');
+
+  const $savedCode = document.createElement('h3');
+  $savedCode.textContent = saved.countryCode;
+
+  const $delete = document.createElement('i');
+  $delete.setAttribute('class', 'fa-solid fa-square-xmark');
+
+  const $savedNameRow = document.createElement('div');
+  $savedNameRow.setAttribute('class', 'row');
+
+  const $savedName = document.createElement('h4');
+  $savedName.textContent = saved.name;
+
+  const $savedDateRow = document.createElement('div');
+  $savedDateRow.setAttribute('class', 'row');
+
+  const $savedDate = document.createElement('h4');
+  $savedDate.textContent = saved.date;
+
+  const $ratingsRow = document.createElement('div');
+  $ratingsRow.setAttribute('class', 'row ratings');
+
+  const $rating1 = document.createElement('i');
+  $rating1.setAttribute('class', 'fa-regular fa-star');
+
+  const $rating2 = document.createElement('i');
+  $rating2.setAttribute('class', 'fa-regular fa-star');
+
+  const $rating3 = document.createElement('i');
+  $rating3.setAttribute('class', 'fa-regular fa-star');
+
+  const $rating4 = document.createElement('i');
+  $rating4.setAttribute('class', 'fa-regular fa-star');
+
+  const $rating5 = document.createElement('i');
+  $rating5.setAttribute('class', 'fa-regular fa-star');
+
+  const $li = document.createElement('li');
+
+  $ratingsRow.append($rating1, $rating2, $rating3, $rating4, $rating5);
+
+  $savedDateRow.append($savedDate);
+
+  $savedNameRow.append($savedName);
+
+  $savedHeader.append($savedCode, $delete);
+
+  $saveContainer.append($savedHeader, $savedNameRow, $savedDateRow, $ratingsRow);
+
+  $li.append($saveContainer);
+
+  return $li;
+}
+
+const $searchView = document.getElementById('search-view');
+const $savedView = document.getElementById('saved-view');
+
+function viewSwap(view) {
+  data.view = view;
+  if (view === 'search-view') {
+    $searchView.className = 'view';
+    $savedView.className = 'view hidden';
+  } else {
+    $searchView.className = 'view hidden';
+    $savedView.className = 'view';
+  }
+}
+
+viewSwap(data.view);
+
+$header.addEventListener('click', function (event) {
+  if (event.target.className === 'fa-solid fa-bookmark') {
+    viewSwap('saved-view');
+  } else if (event.target.className === 'fa-solid fa-house') {
+    viewSwap('search-view');
+  }
+});
+
+const $savedHolidays = document.querySelector('.saved-holidays');
+const $noSavedHolidays = document.querySelector('.no-saved-holidays');
+
+if (data.holidays.length === 0) {
+  $noSavedHolidays.setAttribute('class', 'row no-saved-holidays');
+  $savedHolidays.setAttribute('class', 'row hidden');
+} else {
+  $savedHolidays.setAttribute('class', 'row saved-holidays');
+  $noSavedHolidays.setAttribute('class', 'row hidden');
+}
+
+for (let i = 0; i < data.holidays.length; i++) {
+  $ul.append(renderSaved(data.holidays[i]));
+}

@@ -1,5 +1,5 @@
 body {
-  min-width: 300px;
+  min-width: 280px;
 }
 
 header {
@@ -12,6 +12,7 @@ header {
 main {
   display: flex;
   justify-content: center;
+  height: 95vh;
 }
 
 .row {
