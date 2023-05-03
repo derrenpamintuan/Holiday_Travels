@@ -5,6 +5,10 @@ h1 {
   margin: auto;
 }
 
+p {
+  color: rgb(0, 0, 0);
+}
+
 .hidden {
   display: none;
 }
@@ -29,6 +33,7 @@ h1 {
 table {
   text-align: center;
   margin: 0 20px 30px;
+  background-color: white;
 }
 
 table,
@@ -94,6 +99,7 @@ li {
   border: 1px solid black;
   width: 280px;
   min-height: 125px;
+  background-color: white;
 }
 
 .fa-solid.fa-square-xmark {
