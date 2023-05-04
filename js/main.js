@@ -6,6 +6,7 @@ const $input = document.querySelector('#search');
 const $tbody = document.querySelector('tbody');
 const $table = document.querySelector('table');
 const $ul = document.querySelector('ul');
+const $background = document.querySelector('.background');
 
 $form.addEventListener('submit', function (event) {
   event.preventDefault();
@@ -292,3 +293,9 @@ if (data.holidays.length === 0) {
 for (let i = 0; i < data.holidays.length; i++) {
   $ul.append(renderSaved(data.holidays[i]));
 }
+
+$background.addEventListener('click', function (event) {
+  if (event.target.className === 'background') {
+    $background.style.display = 'none';
+  }
+});

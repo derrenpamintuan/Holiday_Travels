@@ -180,7 +180,7 @@ h4 {
 }
 
 .background {
-  display: none;
+  display: flex;
   position: fixed;
   left: 0;
   top: 0;
@@ -190,48 +190,77 @@ h4 {
 }
 
 .modal {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  align-items: center;
   width: 280px;
   height: 125px;
   background-color: white;
   border: #000 1px solid;
-  margin: 40% auto;
+  margin: auto;
+  transform: translateY(-50%);
 }
 
 .modal > h3 {
   text-align: center;
-  margin-top: 3px;
+  margin-top: 10px;
   margin-bottom: 15px;
 }
 
 .close {
-  margin-right: 35px;
-  margin-bottom: 5px;
+  position: absolute;
+  width: 66px;
+  bottom: 15px;
+  left: 30px;
+  height: 25px;
   font-size: 16px;
   cursor: pointer;
   background-color: aliceblue;
+  transition: all 0.2s ease-out;
 }
 
 .remove {
-  margin-left: 35px;
-  margin-bottom: 5px;
+  position: absolute;
+  width: 66px;
+  bottom: 15px;
+  right: 30px;
+  height: 25px;
   font-size: 16px;
   color: red;
   cursor: pointer;
   background-color: aliceblue;
+  transition: all 0.2s ease-out;
 }
 
 @media screen and (min-width: 450px) {
+  .modal {
+    width: 335px;
+    height: 150px;
+  }
+
+  .close {
+    bottom: 25px;
+    left: 50px;
+  }
+
+  .remove {
+    bottom: 25px;
+    right: 50px;
+  }
+
   .remove:hover,
   .close:hover {
-    background-color: rgb(226, 234, 242);
+    background-color: rgb(209, 217, 226);
+    width: 75px;
+    height: 30px;
   }
 }
 
 .remove:active,
 .close:active {
-  background-color: rgb(226, 234, 242);
+  background-color: rgb(209, 217, 226);
 }
