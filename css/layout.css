@@ -10,7 +10,7 @@ body {
 header {
   display: flex;
   justify-content: center;
-  background-color: rgba(231, 113, 125, 1);
+  background-color: green;
   height: 50px;
 }
 
