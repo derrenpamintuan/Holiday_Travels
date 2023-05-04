@@ -3,10 +3,16 @@ h1 {
   font-weight: lighter;
   font-style: italic;
   margin: auto;
+  text-shadow: -2px 2px 0 #000;
+}
+
+h2 {
+  color: white;
+  text-shadow: -2px 2px 0 #000;
 }
 
 p {
-  color: rgb(0, 0, 0);
+  font-weight: 900;
 }
 
 .hidden {
