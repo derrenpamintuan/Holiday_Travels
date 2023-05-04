@@ -83,6 +83,7 @@ $table.addEventListener('click', function (event) {
     const $nameValue = event.target.closest('tr').childNodes[3].textContent;
 
     const holiday = {};
+    holiday.rating = 0;
     holiday.countryCode = $codeValue;
     holiday.date = $dateValue;
     holiday.localName = $localNameValue;
@@ -143,6 +144,98 @@ function renderSaved(saved) {
 
   const $rating5 = document.createElement('i');
   $rating5.setAttribute('class', 'fa-regular fa-star');
+
+  $rating1.addEventListener('click', function (e) {
+    if (e.target === $rating1) {
+      saved.rating = 1;
+      $rating1.setAttribute('class', 'fa-solid fa-star');
+    }
+
+    if (e.target === $rating1 && $rating1.className === 'fa-solid fa-star') {
+      $rating2.setAttribute('class', 'fa-regular fa-star');
+      $rating3.setAttribute('class', 'fa-regular fa-star');
+      $rating4.setAttribute('class', 'fa-regular fa-star');
+      $rating5.setAttribute('class', 'fa-regular fa-star');
+    }
+  });
+  if (saved.rating === 1) {
+    $rating1.setAttribute('class', 'fa-solid fa-star');
+  }
+
+  $rating2.addEventListener('click', function (e) {
+    if (e.target === $rating2) {
+      saved.rating = 2;
+      $rating1.setAttribute('class', 'fa-solid fa-star');
+      $rating2.setAttribute('class', 'fa-solid fa-star');
+    }
+
+    if (e.target === $rating2 && $rating2.className === 'fa-solid fa-star') {
+      $rating3.setAttribute('class', 'fa-regular fa-star');
+      $rating4.setAttribute('class', 'fa-regular fa-star');
+      $rating5.setAttribute('class', 'fa-regular fa-star');
+    }
+  });
+  if (saved.rating === 2) {
+    $rating1.setAttribute('class', 'fa-solid fa-star');
+    $rating2.setAttribute('class', 'fa-solid fa-star');
+  }
+
+  $rating3.addEventListener('click', function (e) {
+    if (e.target === $rating3) {
+      saved.rating = 3;
+      $rating1.setAttribute('class', 'fa-solid fa-star');
+      $rating2.setAttribute('class', 'fa-solid fa-star');
+      $rating3.setAttribute('class', 'fa-solid fa-star');
+    }
+
+    if (e.target === $rating3 && $rating3.className === 'fa-solid fa-star') {
+      $rating4.setAttribute('class', 'fa-regular fa-star');
+      $rating5.setAttribute('class', 'fa-regular fa-star');
+    }
+  });
+  if (saved.rating === 3) {
+    $rating1.setAttribute('class', 'fa-solid fa-star');
+    $rating2.setAttribute('class', 'fa-solid fa-star');
+    $rating3.setAttribute('class', 'fa-solid fa-star');
+  }
+
+  $rating4.addEventListener('click', function (e) {
+    if (e.target === $rating4) {
+      saved.rating = 4;
+      $rating1.setAttribute('class', 'fa-solid fa-star');
+      $rating2.setAttribute('class', 'fa-solid fa-star');
+      $rating3.setAttribute('class', 'fa-solid fa-star');
+      $rating4.setAttribute('class', 'fa-solid fa-star');
+    }
+
+    if (e.target === $rating4 && $rating4.className === 'fa-solid fa-star') {
+      $rating5.setAttribute('class', 'fa-regular fa-star');
+    }
+  });
+  if (saved.rating === 4) {
+    $rating1.setAttribute('class', 'fa-solid fa-star');
+    $rating2.setAttribute('class', 'fa-solid fa-star');
+    $rating3.setAttribute('class', 'fa-solid fa-star');
+    $rating4.setAttribute('class', 'fa-solid fa-star');
+  }
+
+  $rating5.addEventListener('click', function (e) {
+    if (e.target === $rating5) {
+      saved.rating = 5;
+      $rating1.setAttribute('class', 'fa-solid fa-star');
+      $rating2.setAttribute('class', 'fa-solid fa-star');
+      $rating3.setAttribute('class', 'fa-solid fa-star');
+      $rating4.setAttribute('class', 'fa-solid fa-star');
+      $rating5.setAttribute('class', 'fa-solid fa-star');
+    }
+  });
+  if (saved.rating === 5) {
+    $rating1.setAttribute('class', 'fa-solid fa-star');
+    $rating2.setAttribute('class', 'fa-solid fa-star');
+    $rating3.setAttribute('class', 'fa-solid fa-star');
+    $rating4.setAttribute('class', 'fa-solid fa-star');
+    $rating5.setAttribute('class', 'fa-solid fa-star');
+  }
 
   const $li = document.createElement('li');
 

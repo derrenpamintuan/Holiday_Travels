@@ -1,11 +1,16 @@
 body {
   min-width: 280px;
+  background-image: url("https://img.freepik.com/free-vector/realistic-travel-background-with-elements_52683-77784.jpg?w=2000");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
 }
 
 header {
   display: flex;
   justify-content: center;
-  background-color: rgba(231, 113, 125, 1);
+  background-color: green;
   height: 50px;
 }
 
