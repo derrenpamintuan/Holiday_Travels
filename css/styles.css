@@ -23,6 +23,12 @@ p {
   margin: 16px 5px;
 }
 
+#search:focus {
+  outline: none;
+  border-radius: 3px;
+  border: 2px solid lightskyblue;
+}
+
 .not-found {
   display: none;
 }
@@ -69,6 +75,12 @@ td {
 
 .fa-solid.fa-heart {
   color: red;
+  transition: color 1s;
+}
+
+.fa-regular.fa-heart:active,
+.fa-solid.fa-heart:active {
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
 }
 
 ul {
@@ -112,18 +124,31 @@ li {
 .fa-solid.fa-square-xmark {
   cursor: pointer;
   height: 16px;
-  position: relative;
+  position: absolute;
   right: 1px;
+  transition: all 0.1s ease-out;
+}
+
+.fa-solid.fa-square-xmark:active {
+  color: red;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+}
+
+@media screen and (min-width: 450px) {
+  .fa-solid.fa-square-xmark:hover {
+    font-size: larger;
+    color: red;
+  }
 }
 
 .saved-header {
-  justify-content: end;
+  justify-content: center;
   background-color: blanchedalmond;
   color: black;
 }
 
 .saved-header > h3 {
-  margin: 5px 110px 5px 0;
+  margin: 5px 0;
 }
 
 h4 {
@@ -147,31 +172,46 @@ h4 {
   color: gold;
 }
 
+@media screen and (min-width: 450px) {
+  .fa-regular.fa-star:hover,
+  .fa-solid.fa-star:hover {
+    font-size: larger;
+  }
+}
+
 .fa-solid.fa-bookmark {
+  position: absolute;
+  top: 16px;
+  right: 15px;
   color: white;
   font-size: 20px;
   height: 21px;
-  margin: 15px 15px 0 0;
   cursor: pointer;
+  transition: all 0.3s ease-out;
 }
 
 .fa-solid.fa-house {
+  position: absolute;
+  top: 16px;
+  left: 15px;
   color: white;
   font-size: 20px;
   height: 21px;
-  margin: 15px 0 0 15px;
   cursor: pointer;
+  transition: all 0.3s ease-out;
 }
 
 .fa-solid.fa-bookmark:active,
 .fa-solid.fa-house:active {
   color: black;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
 }
 
 @media screen and (min-width: 450px) {
   .fa-solid.fa-bookmark:hover,
   .fa-solid.fa-house:hover {
     color: black;
+    font-size: 23px;
   }
 }
 
@@ -180,7 +220,7 @@ h4 {
 }
 
 .background {
-  display: flex;
+  display: none;
   position: fixed;
   left: 0;
   top: 0;
@@ -200,7 +240,7 @@ h4 {
   width: 280px;
   height: 125px;
   background-color: white;
-  border: #000 1px solid;
+  border: #000 2px solid;
   margin: auto;
   transform: translateY(-50%);
 }

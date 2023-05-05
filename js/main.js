@@ -1,12 +1,9 @@
 const $form = document.querySelector('form');
-const $header = document.querySelector('header');
 const $noResults = document.querySelector('.not-found');
 const $results = document.querySelector('.results');
 const $input = document.querySelector('#search');
 const $tbody = document.querySelector('tbody');
-const $table = document.querySelector('table');
 const $ul = document.querySelector('ul');
-const $background = document.querySelector('.background');
 
 $form.addEventListener('submit', function (event) {
   event.preventDefault();
@@ -76,6 +73,7 @@ function renderRow(holiday) {
   return $tr;
 }
 
+const $table = document.querySelector('table');
 $table.addEventListener('click', function (event) {
   if (event.target.className === 'fa-regular fa-heart') {
     const $codeValue = event.target.closest('tr').childNodes[0].textContent;
@@ -114,6 +112,7 @@ function renderSaved(saved) {
   $savedCode.textContent = saved.countryCode;
 
   const $delete = document.createElement('i');
+  $delete.setAttribute('id', saved.id);
   $delete.setAttribute('class', 'fa-solid fa-square-xmark');
 
   const $savedNameRow = document.createElement('div');
@@ -239,6 +238,7 @@ function renderSaved(saved) {
   }
 
   const $li = document.createElement('li');
+  $li.setAttribute('id', saved.id);
 
   $ratingsRow.append($rating1, $rating2, $rating3, $rating4, $rating5);
 
@@ -268,8 +268,9 @@ function viewSwap(view) {
     $savedView.className = 'view';
   }
 }
-
 viewSwap(data.view);
+
+const $header = document.querySelector('header');
 
 $header.addEventListener('click', function (event) {
   if (event.target.className === 'fa-solid fa-bookmark') {
@@ -294,8 +295,39 @@ for (let i = 0; i < data.holidays.length; i++) {
   $ul.append(renderSaved(data.holidays[i]));
 }
 
+const $background = document.querySelector('.background');
+
 $background.addEventListener('click', function (event) {
   if (event.target.className === 'background') {
     $background.style.display = 'none';
+  }
+});
+
+const $close = document.querySelector('.close');
+
+$close.addEventListener('click', function () {
+  $background.style.display = 'none';
+});
+
+$ul.addEventListener('click', function (event) {
+  if (event.target.className === 'fa-solid fa-square-xmark') {
+    $background.style.display = 'flex';
+
+    const $remove = document.querySelector('.remove');
+    const itemToDelete = event.target.id;
+
+    $remove.addEventListener('click', function (event) {
+      for (let i = 0; i < data.holidays.length; i++) {
+        if (data.holidays[i].id === parseInt(itemToDelete)) {
+          data.holidays.splice(i, 1);
+        }
+      }
+      const $lis = document.querySelectorAll('li');
+      for (let i = 0; i < $lis.length; i++) {
+        if (parseInt($lis[i].id) === parseInt(itemToDelete)) {
+          $lis[i].remove();
+        }
+      }
+    });
   }
 });
