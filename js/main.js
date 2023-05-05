@@ -328,6 +328,13 @@ $ul.addEventListener('click', function (event) {
           $lis[i].remove();
         }
       }
+      $background.style.display = 'none';
+
+      if ($ul.childElementCount === 0) {
+        $noSavedHolidays.setAttribute('class', 'row no-saved-holidays');
+        $savedHolidays.setAttribute('class', 'row hidden');
+        localStorage.clear();
+      }
     });
   }
 });

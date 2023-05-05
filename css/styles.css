@@ -19,6 +19,10 @@ p {
   display: none;
 }
 
+.search {
+  margin-top: 20px;
+}
+
 #search {
   margin: 16px 5px;
 }
@@ -26,7 +30,7 @@ p {
 #search:focus {
   outline: none;
   border-radius: 3px;
-  border: 2px solid lightskyblue;
+  border: 2px solid rgb(65, 65, 255);
 }
 
 .not-found {
