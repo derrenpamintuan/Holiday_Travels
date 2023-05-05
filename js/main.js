@@ -315,13 +315,25 @@ $ul.addEventListener('click', function (event) {
 
     const $remove = document.querySelector('.remove');
     const itemToDelete = event.target.id;
+    const countryCodeToRemove = event.target.closest('div').childNodes[0].textContent;
+    const nameToRemove = event.target.closest('.save-container').childNodes[1].childNodes[0].textContent;
 
     $remove.addEventListener('click', function (event) {
+      const $solidHearts = document.querySelectorAll('.fa-solid.fa-heart');
+      for (let i = 0; i < $solidHearts.length; i++) {
+        const codeValueFromDOMTree = $solidHearts[i].closest('tr').childNodes[0].textContent;
+        const nameValueFromDOMTree = $solidHearts[i].closest('tr').childNodes[3].textContent;
+        if (codeValueFromDOMTree === countryCodeToRemove && nameValueFromDOMTree === nameToRemove) {
+          $solidHearts[i].setAttribute('class', 'fa-regular fa-heart');
+        }
+      }
+
       for (let i = 0; i < data.holidays.length; i++) {
         if (data.holidays[i].id === parseInt(itemToDelete)) {
           data.holidays.splice(i, 1);
         }
       }
+
       const $lis = document.querySelectorAll('li');
       for (let i = 0; i < $lis.length; i++) {
         if (parseInt($lis[i].id) === parseInt(itemToDelete)) {
