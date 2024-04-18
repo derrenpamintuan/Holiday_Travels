@@ -4,6 +4,8 @@ A dynamic HTML, CSS, and JavaScript solo project for travel enthusiasts who want
 
 ## Why I built this
 
+As a travel fanatic, I wanted to build an application that lets curious people research holidays in different parts of the world before visiting the location.
+
 ## Technologies Used
 
 ## Live Demo
