@@ -1,6 +1,6 @@
 # ajax-project
 
-A front-end web application for travel enthusiasts who want to acquire information on upcoming holidays around the world.
+A Front-End solo project for travel enthusiasts who want to acquire information on upcoming holidays around the world.
 
 ## Why I built this
 
@@ -18,6 +18,8 @@ As a travel fanatic, I wanted to build an application that lets curious people r
 - Visual Studio Code
 
 ## Live Demo
+
+Try the application live at https://derrenpamintuan.github.io/ajax-project/
 
 ## Features
 
