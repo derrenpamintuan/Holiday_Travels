@@ -23,6 +23,12 @@ Try the application live at https://derrenpamintuan.github.io/ajax-project/
 
 ## Features
 
+- User can search for upcoming holidays with inputted country code.
+- User can save holidays to their favorites list.
+- User can view a list of their favorite holidays.
+- User can rate their favorite holidays.
+- User can remove holidays from their favorites list.
+
 ## Preview
 
 ### Stretch Features
