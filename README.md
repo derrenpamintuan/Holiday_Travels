@@ -41,4 +41,8 @@ Try the application live at https://derrenpamintuan.github.io/ajax-project/
 
 ### System Requirements
 
+- JavaScript (ES5/ES6)
+- CSS3
+- HTML5
+
 ### Getting Started
