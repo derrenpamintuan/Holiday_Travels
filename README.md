@@ -36,6 +36,9 @@ Try the application live at https://derrenpamintuan.github.io/ajax-project/
 
 ### Stretch Features
 
+- User can select country code through a dropbox.
+- User can view a holiday's details.
+
 ### System Requirements
 
 ### Getting Started
