@@ -31,6 +31,9 @@ Try the application live at https://derrenpamintuan.github.io/ajax-project/
 
 ## Preview
 
+![Feature 1](images/feature1.gif)
+![Feature 2](images/feature2.gif)
+
 ### Stretch Features
 
 ### System Requirements
