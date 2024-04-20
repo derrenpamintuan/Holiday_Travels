@@ -38,6 +38,7 @@ Try the application live at https://derrenpamintuan.github.io/ajax-project/
 
 - User can select country code through a dropbox.
 - User can view a holiday's details.
+- User can view a image describing the holiday.
 
 ### System Requirements
 
@@ -46,3 +47,9 @@ Try the application live at https://derrenpamintuan.github.io/ajax-project/
 - HTML5
 
 ### Getting Started
+
+1. Clone the repository.
+
+   ```shell
+   git clone https://github.com/derrenpamintuan/ajax-project.git
+   ```
