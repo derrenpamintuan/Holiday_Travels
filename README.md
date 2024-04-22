@@ -1,4 +1,4 @@
-# ajax-project
+# Holiday Travels
 
 A Front-End solo project for travel enthusiasts who want to acquire information on upcoming holidays around the world.
 
