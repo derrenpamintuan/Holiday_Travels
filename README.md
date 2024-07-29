@@ -19,7 +19,7 @@ As a travel fanatic, I wanted to build an application that lets curious people r
 
 ## Live Demo
 
-Try the application live at https://derrenpamintuan.github.io/ajax-project/
+Try the application live at https://derrenpamintuan.github.io/Holiday_Travels/
 
 ## Features
 
@@ -51,5 +51,5 @@ Try the application live at https://derrenpamintuan.github.io/ajax-project/
 1. Clone the repository.
 
    ```shell
-   git clone https://github.com/derrenpamintuan/ajax-project.git
+   git clone https://github.com/derrenpamintuan/Holiday_Travels.git
    ```
